@@ -82,7 +82,7 @@ if ($_POST) {
                 <td><?php echo $data[3] ?></td>
                 <td class="text-center"><a href="notes.php?id=<?php echo $data[0]?>"><i class="far fa-clipboard"></i></a></td>
                 <td class="text-center"><a href="edit.php?id=<?php echo $data[0]?>"><i class="far fa-edit"></i></a></td>
-                <td class="text-center"><a href="delete.php?id=<?php echo $data[0]?>&which=con"><i class="far fa-trash-alt"></i></a></td>
+                <td class="text-center"><a href="delete.php?id=<?php echo $data[0]?>&which=contact" onclick="return confirm('Do you want to delete this contact? Y/N')"><i class="far fa-trash-alt"></i></a></td>
               </tr>              
             <?php } ?>
           </tbody>   
