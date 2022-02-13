@@ -33,15 +33,17 @@ if ($_POST) {
   </head>
   <body>
     <div class="container-fluid">
-      <div class="row">
-        <!-- style="height: 150px; background-color: #6495ED; border-radius: 0px 0px 6px 6px;" -->
-        <div class="col-sm-12 p-5 rounded-bottom bg-secondary text-white">
-          <img src="img/iPhone-icon.png" alt="" width="60" style="float: left;"><h1>Listing notes of <?php echo "  '".strtoupper($row[1].' '.$row[2].'\'')?></h1>
+      <div class="row text-light p-4 align-items-center" style="border-bottom: 9px solid #6495ED; background-color: #607bab;">
+        <div class="col-sm-1" style="width: 80px;">
+          <img src="img/iPhone-icon.png" alt="" width="84">
+        </div>
+        <div class="col">
+          <h2 style="display: inline;">Listing notes: <?php echo "  '".strtoupper($row[1].' '.$row[2].'\'')?></h2>
         </div>
       </div>
     </div>
     <div class="container">
-      <br><br>
+      <br><br><br>
       <div class="row align-items-base">
         <div class="col-sm-1"></div>
         <div class="col-sm-4" style="background-color: #f2f4f4; padding: 10px; margin-right: 6px; border-radius: 6px;">
@@ -87,7 +89,7 @@ if ($_POST) {
                 <?php } ?>          
               </tbody>   
             </table>
-            <a href="index.php" class="btn btn-success">Back to index</a>
+            <a href="home.php" class="btn btn-success">Back to home</a>
           </div>
         </div>
       </div>

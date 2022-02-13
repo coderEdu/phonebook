@@ -34,15 +34,18 @@ if ($_POST) {
   </head>
   <body>
     <div class="container-fluid">
-      <div class="row">
-        <!-- style="height: 150px; background-color: #6495ED; border-radius: 0px 0px 6px 6px;" -->
-        <div class="col-sm-12 p-5 rounded-bottom bg-secondary text-white">
-          <img src="img/iPhone-icon.png" alt="" width="60" style="float: left;"><h1>Editing note: <?php echo " ".strtoupper('\''.$row[1].'\'')?></h1>
+      <div class="row text-light p-4 align-items-center" style="border-bottom: 9px solid #6495ED; background-color: #607bab;">
+        <div class="col-sm-1" style="width: 80px;">
+          <img src="img/iPhone-icon.png" alt="" width="84">
+        </div>
+        <div class="col">
+          <h2 style="display: inline;">Editing note: <?php echo " ".strtoupper('\''.$row[1].'\'')?></h2>
         </div>
       </div>
+      
     </div>
     <div class="container">
-      <br><br>
+      <br><br><br>
       <div class="row align-items-center">
         <div class="col-sm-3">
         </div>
