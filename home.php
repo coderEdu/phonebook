@@ -93,9 +93,9 @@ if (isset($_GET['search'])) {
             while ($data = mysqli_fetch_row($sql)) { ?>
               <tr>              
                 <th scope="row"><?php echo $data[0] ?></th>
-                <td><?php echo $data[1] ?></td>
-                <td><?php echo $data[2] ?></td>
-                <td class="text-end"><?php echo $data[3] ?></td>
+                <td class="text-center"><?php echo $data[1] ?></td>
+                <td class="text-center"><?php echo $data[2] ?></td>
+                <td class="text-center"><?php echo $data[3] ?></td>
                 <td class="text-center"><a href="notes.php?id=<?php echo $data[0]?>"><i class="far fa-clipboard"></i></a></td>
                 <td class="text-center"><a href="edit.php?id=<?php echo $data[0]?>"><i class="far fa-edit"></i></a></td>
                 <td class="text-center"><a href="delete.php?id=<?php echo $data[0]?>&which=contact" onclick="return confirm('Do you want to delete this contact? Y/N')"><i class="far fa-trash-alt"></i></a></td>
