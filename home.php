@@ -8,6 +8,12 @@ if ($_POST) {
   include_once "db.php";
   $insert_query = mysqli_query($conn, "INSERT INTO people (name,surname,phone) VALUES ('$name','$surname','$phone')");
 }
+
+if (isset($_GET['search'])) {
+  $value = $_GET['search'];
+  include_once "db.php";
+  $sql = mysqli_query($conn,"SELECT * FROM people WHERE surname LIKE '%$value%'");
+}
 ?>
 
 <!doctype html>
@@ -37,14 +43,21 @@ if ($_POST) {
         <div class="col">
           <h2 style="display: inline;"><?php echo strtoupper("PhoneBook Management") ?></h2>
         </div>
+        <div class="col-sm-3">
+
+          <form action="home.php" method="GET">
+            <input type="text" class="form-control" name="search" placeholder="Type here to search">
+          </form>
+
+        </div>
       </div>
     </div>
     <div class="container-md">
       <br><br><br>
-      <div class="row align-items-start" style="background-color: #f2f4f4; padding: 10px; border-radius: 6px;">
-        <div class="col-sm-4">
+      <div class="row align-items-start" style="background-color: #f2f4f4; border-radius: 6px;">
+        <div class="col-sm-4 p-4">
           <!-- add new contact's form -->
-          <form action="index.php" method="POST">
+          <form action="home.php" method="POST">
             <div class="mb-3">
               <label for="inputName" class="form-label">Name</label>
               <input type="text" class="form-control border border-2" name="name"  aria-describedby="">        
@@ -60,14 +73,14 @@ if ($_POST) {
             <button type="submit" class="btn btn-success">Add to contacts</button>
           </form>
         </div>
-        <div class="col-sm-8">
-          <table class="table table-striped">
-            <thead>
+        <div class="col-sm-8 p-3">
+          <table class="table table-light table-striped">
+            <thead class="table-light">
             <tr>
-              <th scope="col">Id</th>
-              <th scope="col">Name</th>
-              <th scope="col">Surname</th>
-              <th scope="col">Phone</th>
+              <th scope="col" class="text-center">Id</th>
+              <th scope="col" class="text-center">Name</th>
+              <th scope="col" class="text-center">Surname</th>
+              <th scope="col" class="text-center">Phone</th>
               <th scope="col" class="text-center">Notes</th>
               <th scope="col" class="text-center">Edit</th>
               <th scope="col" class="text-center">Delete</th>
@@ -77,12 +90,12 @@ if ($_POST) {
             <?php include "db.php"; ?>
             <?php $query = mysqli_query($conn, "SELECT * FROM people"); ?>
             <?php
-            while ($data = mysqli_fetch_row($query)) { ?>
+            while ($data = mysqli_fetch_row($sql)) { ?>
               <tr>              
                 <th scope="row"><?php echo $data[0] ?></th>
                 <td><?php echo $data[1] ?></td>
                 <td><?php echo $data[2] ?></td>
-                <td><?php echo $data[3] ?></td>
+                <td class="text-end"><?php echo $data[3] ?></td>
                 <td class="text-center"><a href="notes.php?id=<?php echo $data[0]?>"><i class="far fa-clipboard"></i></a></td>
                 <td class="text-center"><a href="edit.php?id=<?php echo $data[0]?>"><i class="far fa-edit"></i></a></td>
                 <td class="text-center"><a href="delete.php?id=<?php echo $data[0]?>&which=contact" onclick="return confirm('Do you want to delete this contact? Y/N')"><i class="far fa-trash-alt"></i></a></td>
