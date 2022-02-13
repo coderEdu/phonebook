@@ -1,5 +1,4 @@
-<?php 
-
+<?php
 if ($_POST) {
   $name = $_POST['name'];
   $surname = $_POST['surname'];
@@ -12,7 +11,7 @@ if ($_POST) {
 if (isset($_GET['search'])) {
   $value = $_GET['search'];
   include_once "db.php";
-  $sql = mysqli_query($conn,"SELECT * FROM people WHERE surname LIKE '%$value%'");
+  $search_query = mysqli_query($conn,"SELECT * FROM people WHERE surname LIKE '%$value%'");
 }
 ?>
 
@@ -88,8 +87,15 @@ if (isset($_GET['search'])) {
           </thead>
           <tbody>
             <?php include "db.php"; ?>
-            <?php $query = mysqli_query($conn, "SELECT * FROM people"); ?>
+            <?php $star_query = mysqli_query($conn, "SELECT * FROM people"); ?>
             <?php
+
+            if ($value=='') {
+              $sql = $star_query;
+            } else {
+              $sql = $search_query;
+            }
+
             while ($data = mysqli_fetch_row($sql)) { ?>
               <tr>              
                 <th scope="row"><?php echo $data[0] ?></th>
