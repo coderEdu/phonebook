@@ -15,10 +15,11 @@ if ($_POST) {
 
   mysqli_query($conn, "UPDATE notes SET title = '$title', note = '$content' WHERE id = '$id'");
 
-  $_SESSION["saved"] = "";
+  if (isset($_POST['note-edited'])) {
+    $_SESSION['message']="note-edited";
+  }
+  
   header("Location:".$_POST['prev']);
-
-
 }
 ?>
 <?php include "includes/header.php"; ?>
@@ -28,7 +29,6 @@ if ($_POST) {
     <div class="col-sm-3">
     </div>
     <div class="col-sm-6" style="background-color: #f2f4f4; border-radius: 6px;">
-
       <!-- edit and view a contact's note -->
       <form action="edit-note.php" method="POST" style="padding: 10px;"> <!-- form header -->
         <input type="hidden" value="<?php echo $_SERVER['HTTP_REFERER']; ?>" name="prev" /> 
@@ -43,6 +43,7 @@ if ($_POST) {
           <label for="exampleFormControlTextarea1" class="form-label">Content</label>
           <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="content"><?php echo $row[2];?></textarea>
         </div>
+        <input type="text" name="note-edited" hidden>
         <button type="submit" class="btn btn-success">Save changes</button>
       </form>
       

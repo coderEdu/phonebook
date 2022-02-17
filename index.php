@@ -19,7 +19,7 @@ if ($_POST) {
 
 <?php include "includes/header.php"; ?>
 <div class="container">
-  <br><br><br>
+  <br><br>
   <div class="row align-items-center">
     <div class="col-sm-4">
     </div>

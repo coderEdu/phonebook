@@ -9,6 +9,7 @@ if ($_GET) {
 }
 
 if ($_POST) {
+  var_dump($_POST);
   $title = $_POST['title'];
   $people_id = $_POST['people-id'];
   $content = $_POST['content'];
@@ -20,17 +21,25 @@ if ($_POST) {
 ?>
 <?php include "includes/header.php"; ?>
 <div class="container-fluid">
-  <div class="row align-items-center">
-    <?php if (isset($_SESSION['saved'])) { ?>
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script>
-      setTimeout(function() { $('#success').fadeOut('slow'); }, 2200);
-    </script>
-    
-    <div class="col text-center alert alert-success" role="alert" id="success">changes was saved successfully!</div>
+  <div class="row align-items-center">    
 
+    <?php
+    if (isset($_SESSION['message'])) { ?>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script>
+        setTimeout(function() { $('#success').fadeIn(1800,"swing"); }, 50);
+        setTimeout(function() { $('#success').fadeOut(2000); }, 2850);
+      </script>
+    <?php
+      if ($_SESSION['message']=='note-edited') { 
+        $text = "Changes was saved successfully"; ?>
+    <?php  } elseif ($_SESSION['message']=='note-deleted') {
+      $text = 'Note deleted succesfully';
+    } ?>
     <?php } ?>
+    
+    <div class="col text-center alert alert-success" role="alert" id="success" style="display: none;"><?php echo $text; ?></div>
+
     <?php 
     session_unset();
     session_destroy();
@@ -55,6 +64,7 @@ if ($_POST) {
           <label for="exampleFormControlTextarea1" class="form-label">Content</label>
           <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="content"></textarea>
         </div>
+        <input type="text" name="note-edited" hidden>
         <button type="submit" class="btn btn-success">Save changes</button>
       </form>
     </div>

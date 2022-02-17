@@ -1,11 +1,6 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['user-name']) && !isset($_SESSION['user-pass'])) {
-  header("Location: index.php");
-  exit();
-}
-
 if ($_POST) {
   $name = $_POST['name'];
   $surname = $_POST['surname'];
@@ -29,11 +24,11 @@ if (isset($_GET['search'])) {
 <?php include "includes/header.php"; ?>
 
 <div class="container-fluid">
-  <div class="row align-items-center">
-    <?php// if (isset($_SESSION['saved'])) { ?>    
+  <div class="row align-items-center">  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"> </script>
     <script>
-            setTimeout(function() { $('#success').fadeOut('slow'); }, 2200);
+      setTimeout(function() { $('#success').fadeIn(1800,"swing"); }, 50);
+      setTimeout(function() { $('#success').fadeOut(2000); }, 2850);
     </script>
     <?php
     if (isset($_SESSION['message'])) {
@@ -49,7 +44,7 @@ if (isset($_GET['search'])) {
     <?php
     $show_alert = isset($_SESSION['message']);
     if ($show_alert) { ?>
-      <div class="col text-center alert alert-success" role="alert" id="success"><?php echo $text; ?></div>
+      <div class="col text-center alert alert-success" role="alert" id="success" style="display: none;"><?php echo $text; ?></div>
     <?php } ?>
 
     <?php //} ?>
@@ -127,6 +122,4 @@ if (isset($_GET['search'])) {
   </div>
 </div>
 <?php include "includes/footer.php"; ?>
-
-
 
