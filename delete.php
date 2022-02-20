@@ -7,11 +7,11 @@ if ($_GET) {
 	switch ($_GET['which']) {
 		case 'contact': 
 			mysqli_query($conn, "DELETE FROM people WHERE id = '$id'");
-			$_SESSION['message']='contact-deleted';
+			$_SESSION['msg_to_contact']='contact-deleted';
 			break;
 		case 'note':
 			mysqli_query($conn, "DELETE FROM notes WHERE id = '$id'");
-			$_SESSION['message']='note-deleted';
+			$_SESSION['msg_to_note']='note-deleted';
 			break;
 	}
 }

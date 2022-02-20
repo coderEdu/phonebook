@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-sm-3 mb-3"></div>
       <div class="col-6 col-sm-4 offset-sm-2 mb-3">
-        <site>Developed by EduC - Web Design &copy2021</site>
+        <site>Developed by EduC - Web Design &copy <?php echo date('Y');?></site>
     </div>
   </div>
 </footer>

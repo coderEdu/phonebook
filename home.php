@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+// empty the note session value so that notes's load don't show the alert bar 
+$_SESSION['msg_to_note']=''; 
+
 if ($_POST) {
   $name = $_POST['name'];
   $surname = $_POST['surname'];
@@ -9,7 +12,7 @@ if ($_POST) {
   include_once "db.php";
   $insert_query = mysqli_query($conn, "INSERT INTO people (name,surname,phone) VALUES ('$name','$surname','$phone')");
 
-  $_SESSION['message']='created';
+  $_SESSION['msg_to_contact']='created';
 
 
 }
@@ -31,27 +34,23 @@ if (isset($_GET['search'])) {
       setTimeout(function() { $('#success').fadeOut(2000); }, 2850);
     </script>
     <?php
-    if (isset($_SESSION['message'])) {
-      if ($_SESSION['message']=='updated') {
-        $text='Changes was saved succesfully';
-      } else if ($_SESSION['message']=='deleted') {
-        $text='contact was deleted succesfully';
-      } else if ($_SESSION['message']=='created') {
+    if (isset($_SESSION['msg_to_contact'])) {
+      if ($_SESSION['msg_to_contact']=='updated') {
+        $text='Changes were saved successfully';
+      } else if ($_SESSION['msg_to_contact']=='contact-deleted') {
+        $text='contact were deleted successfully';
+      } else if ($_SESSION['msg_to_contact']=='created') {
         $text='New contact created';
       }       
     } 
     ?>
     <?php
-    $show_alert = isset($_SESSION['message']);
+    $show_alert = isset($_SESSION['msg_to_contact']) && strlen($_SESSION['msg_to_contact'] > 0);
     if ($show_alert) { ?>
       <div class="col text-center alert alert-success" role="alert" id="success" style="display: none;"><?php echo $text; ?></div>
     <?php } ?>
 
-    <?php //} ?>
-    <?php 
-    session_unset();
-    session_destroy();
-    ?>
+    <?php $_SESSION['msg_to_contact']=''; ?>
       <br><br>
   </div>
 </div>
@@ -108,7 +107,7 @@ if (isset($_GET['search'])) {
             <td class="text-center"><a href="notes.php?id=<?php echo $data[0]?>"><i class="far fa-clipboard"></i></a></td>
             <td class="text-center"><a href="edit.php?id=<?php echo $data[0]?>"><i class="far fa-edit"></i></a></td>
             <td class="text-center"><a href="delete.php?id=<?php echo $data[0]?>&which=contact" onclick="return confirm('Do you want to delete this contact? Y/N')"><i class="far fa-trash-alt"></i></a></td>
-          </tr>              
+          </tr>   
         <?php } ?>
       </tbody>   
       </table>
@@ -122,4 +121,3 @@ if (isset($_GET['search'])) {
   </div>
 </div>
 <?php include "includes/footer.php"; ?>
-

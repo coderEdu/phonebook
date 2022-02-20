@@ -18,7 +18,7 @@ if ($_POST) {
   include_once "db.php";
   $update_query = mysqli_query($conn, "UPDATE people SET name = '$name', surname = '$surname', phone = '$phone' WHERE id = '$id'");
 
-  $_SESSION['message']='updated';
+  $_SESSION['msg_to_contact']='updated';
 
   header("Location: home.php");
 }

@@ -4,8 +4,12 @@ session_start();
 include_once "db.php";
 if ($_GET) {
   $id = $_GET['id'];
+  $ctid = $_GET['ctid'];
   $sql = mysqli_query($conn, "SELECT * FROM notes WHERE id = '$id'");
   $row = mysqli_fetch_row($sql);
+
+  $ct_name_sql = mysqli_query($conn, "SELECT * FROM people WHERE id = '$ctid'");
+  $ct_row = mysqli_fetch_row($ct_name_sql);
 }
 
 if ($_POST) {
@@ -15,9 +19,7 @@ if ($_POST) {
 
   mysqli_query($conn, "UPDATE notes SET title = '$title', note = '$content' WHERE id = '$id'");
 
-  if (isset($_POST['note-edited'])) {
-    $_SESSION['message']="note-edited";
-  }
+  $_SESSION['msg_to_note']="note-edited";
   
   header("Location:".$_POST['prev']);
 }
@@ -25,10 +27,17 @@ if ($_POST) {
 <?php include "includes/header.php"; ?>
 <div class="container">
   <br><br>
-  <div class="row align-items-center">
-    <div class="col-sm-3">
+  <div class="row align-items-center mb-3">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <h4 class="text-center"><?php echo $ct_row[1]." ".$ct_row[2] . " -> " . "Notes" . " -> " . $row[1]; ?></h4>
     </div>
-    <div class="col-sm-6" style="background-color: #f2f4f4; border-radius: 6px;">
+  </div>
+  <div class="row align-items-center">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4" style="background-color: #f2f4f4; border-radius: 6px;">
+
       <!-- edit and view a contact's note -->
       <form action="edit-note.php" method="POST" style="padding: 10px;"> <!-- form header -->
         <input type="hidden" value="<?php echo $_SERVER['HTTP_REFERER']; ?>" name="prev" /> 
@@ -43,7 +52,6 @@ if ($_POST) {
           <label for="exampleFormControlTextarea1" class="form-label">Content</label>
           <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="content"><?php echo $row[2];?></textarea>
         </div>
-        <input type="text" name="note-edited" hidden>
         <button type="submit" class="btn btn-success">Save changes</button>
       </form>
       
