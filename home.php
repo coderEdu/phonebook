@@ -13,8 +13,6 @@ if ($_POST) {
   $insert_query = mysqli_query($conn, "INSERT INTO people (name,surname,phone) VALUES ('$name','$surname','$phone')");
 
   $_SESSION['msg_to_contact']='created';
-
-
 }
 
 if (isset($_GET['search'])) {
@@ -38,9 +36,9 @@ if (isset($_GET['search'])) {
       if ($_SESSION['msg_to_contact']=='updated') {
         $text='Changes were saved successfully';
       } else if ($_SESSION['msg_to_contact']=='contact-deleted') {
-        $text='contact were deleted successfully';
+        $text='contact deleted successfully';
       } else if ($_SESSION['msg_to_contact']=='created') {
-        $text='New contact created';
+        $text='A new contact was created';
       }       
     } 
     ?>

@@ -38,7 +38,7 @@ if ($_POST) {
     <?php  } elseif ($_SESSION['msg_to_note']=='note-deleted') {
       $text = 'Note deleted successfully'; ?>
     <?php  } elseif ($_SESSION['msg_to_note']=='note-created') {
-      $text = 'New note were created successfully';
+      $text = 'A new note was created';
     } ?>
 
     <?php } ?>
