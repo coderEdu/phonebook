@@ -36,7 +36,7 @@ if (isset($_GET['search'])) {
       if ($_SESSION['msg_to_contact']=='updated') {
         $text='Changes were saved successfully';
       } else if ($_SESSION['msg_to_contact']=='contact-deleted') {
-        $text='contact deleted successfully';
+        $text='Contact deleted successfully';
       } else if ($_SESSION['msg_to_contact']=='created') {
         $text='A new contact was created';
       }       
@@ -53,26 +53,26 @@ if (isset($_GET['search'])) {
   </div>
 </div>
 <div class="container-md">
-  <div class="row align-items-start" style="background-color: #f2f4f4; border-radius: 6px;">
-    <div class="col-sm-4 p-4">
+  <div class="row align-items-start">
+    <div class="col-sm-3 p-4" style="background-color: #f2f4f4; padding: 10px; margin-right: 10px; border-radius: 6px;">
+
       <!-- add new contact's form -->
       <form action="home.php" method="POST">
         <div class="mb-3">
-          <label for="inputName" class="form-label">Name</label>
-          <input type="text" class="form-control border border-2" name="name"  aria-describedby="">        
+          <input type="text" class="form-control border border-2" name="name" aria-describedby="" placeholder="Name">        
         </div>
         <div class="mb-3">
-          <label for="inputSurname" class="form-label">Surname</label>
-          <input type="text" class="form-control border border-2" name="surname">
+          <input type="text" class="form-control border border-2" name="surname" placeholder="Surname">
         </div>
         <div class="mb-3">
-          <label for="inputAge" class="form-label">Phone</label>
-          <input type="text" class="form-control border border-2" name="phone">
+          <input type="text" class="form-control border border-2" name="phone" placeholder="Phone">
         </div>
         <button type="submit" class="btn btn-success">Add to contacts</button>
       </form>
+
     </div>
-    <div class="col-sm-8 p-3">
+
+    <div class="col-sm-8 p-3" style="background-color: #f2f4f4; border-radius: 6px;">
       <table class="table table-light table-striped">
         <thead class="table-light">
         <tr>
