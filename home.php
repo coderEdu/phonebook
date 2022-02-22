@@ -98,7 +98,7 @@ if (isset($_GET['search'])) {
 
         while ($data = mysqli_fetch_row($sql)) { ?>
           <tr>              
-            <th scope="row"><?php echo $data[0] ?></th>
+            <th scope="row" class="text-center"><?php echo $data[0] ?></th>
             <td class="text-center"><?php echo $data[1] ?></td>
             <td class="text-center"><?php echo $data[2] ?></td>
             <td class="text-center"><?php echo $data[3] ?></td>
@@ -111,10 +111,9 @@ if (isset($_GET['search'])) {
       </table>
     </div>
   </div>
-  <div class="row p-4">
+  <div class="row p-4 mb-5">
     <div class="col-sm-4"></div>
-    <div class="col-sm-4 align-items-center">
-      <?php include "includes/pagination.php"; ?>
+    <div class="col-sm-4 align-items-center">      
     </div>
   </div>
 </div>

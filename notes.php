@@ -60,7 +60,7 @@ if ($_POST) {
 <div class="container">
   <div class="row align-items-base">
     <div class="col-sm-1"></div>
-    <div class="col-sm-4" style="background-color: #f2f4f4; padding: 10px; margin-right: 6px; border-radius: 6px;">
+    <div class="col-sm-4" style="background-color: #f2f4f4; padding: 10px; margin-right: 10px; border-radius: 6px;">
 
       <!-- create-note form -->
       <form action="notes.php" method="POST" class="p-2"> <!-- form header -->    <!-- wk here -->
