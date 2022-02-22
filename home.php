@@ -67,7 +67,7 @@ if (isset($_GET['search'])) {
         <div class="mb-3">
           <input type="text" class="form-control border border-2" name="phone" placeholder="Phone">
         </div>
-        <button type="submit" class="btn btn-success">Add to contacts</button>
+        <button type="submit" class="btn btn-danger">Add to contacts</button>
       </form>
 
     </div>

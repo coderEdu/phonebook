@@ -52,7 +52,7 @@ if ($_POST) {
           <label for="exampleFormControlTextarea1" class="form-label">Content</label>
           <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="content"><?php echo $row[2];?></textarea>
         </div>
-        <button type="submit" class="btn btn-success">Save changes</button>
+        <button type="submit" class="btn btn-danger">Save changes</button>
       </form>
       
     </div>

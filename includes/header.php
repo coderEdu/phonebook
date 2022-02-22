@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -23,11 +24,14 @@
           <img src="img/iPhone-icon.png" alt="" width="84">
         </div>
         <div class="col">
-          <h2 style="display: inline;"><?php echo strtoupper("PhoneBook Management") ?></h2>
+          <h2 style="display: inline; font-family: Verdana;"><?php echo strtoupper("PhoneBook Management") ?></h2>
         </div>
-        <div class="col">
+        <div class="col-sm-2">
+          <h3 style="display: inline;" class="text-center align-middle">Hi <?php echo $_SESSION['user-name']; ?>!</h3>
+        </div>
+        <div class="col-sm-1">
           <form action="logout.php" method="POST">
-            <input type="submit" name="logout" value="Log out">
+            <input type="submit" class="btn btn-danger" name="logout" value="Log out">
           </form>
         </div>
         <?php include "includes/search-bar.php"; ?>

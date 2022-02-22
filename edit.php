@@ -48,7 +48,7 @@ if ($_POST) {
           <label for="inputAge" class="form-label">Phone</label>
           <input type="text" class="form-control border border-2" name="phone" value="<?php echo $row[3]; ?>">
         </div>
-        <button type="submit" class="btn btn-success">Save changes</button>
+        <button type="submit" class="btn btn-danger">Save changes</button>
       </form>
     </div>
   </div>

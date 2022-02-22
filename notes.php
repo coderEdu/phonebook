@@ -74,7 +74,7 @@ if ($_POST) {
           <label for="exampleFormControlTextarea1" class="form-label">Content</label>
           <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" name="content"></textarea>
         </div>
-        <button type="submit" class="btn btn-success">Add to notes</button>
+        <button type="submit" class="btn btn-danger">Add to notes</button>
       </form>
 
     </div>
@@ -105,7 +105,7 @@ if ($_POST) {
             <?php } ?>          
           </tbody>   
         </table>
-        <a href="home.php" class="btn btn-success">Back to home</a>
+        <a href="home.php" class="btn btn-danger">Back to home</a>
       </div>
     </div>
   </div>
