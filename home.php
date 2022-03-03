@@ -15,11 +15,14 @@ if ($_POST) {
   $_SESSION['msg_to_contact']='created';
 }
 
-if (isset($_GET['search'])) {
+if (!isset($_GET['search'])) {
+  $value = '';
+} else {
   $value = $_GET['search'];
-  include_once "db.php";
-  $search_query = mysqli_query($conn,"SELECT * FROM people WHERE surname LIKE '%$value%' OR name LIKE '%$value%'");
 }
+
+include_once "db.php";
+$search_query = mysqli_query($conn,"SELECT * FROM people WHERE surname LIKE '%$value%' OR name LIKE '%$value%'");
 ?>
 
 <?php include "includes/header.php"; ?>
@@ -54,7 +57,7 @@ if (isset($_GET['search'])) {
 </div>
 <div class="container-md">
   <div class="row align-items-start">
-    <div class="col-sm-3 p-4" style="background-color: #f2f4f4; padding: 10px; margin-right: 10px; border-radius: 6px;">
+    <div class="col-sm-3 p-4" style="background-color: #fff; padding: 10px; margin-right: 20px; border-radius: 6px;">
 
       <!-- add new contact's form -->
       <form action="home.php" method="POST">
@@ -72,8 +75,8 @@ if (isset($_GET['search'])) {
 
     </div>
 
-    <div class="col-sm-8 p-3" style="background-color: #f2f4f4; border-radius: 6px;">
-      <table class="table table-light table-striped">
+    <div class="col-sm-8 p-3" style="background-color: #fff; border-radius: 6px;">
+      <table class="table table-hover">
         <thead class="table-light">
         <tr>
           <th scope="col" class="text-center">Id</th>

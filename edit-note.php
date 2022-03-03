@@ -36,7 +36,7 @@ if ($_POST) {
   <div class="row align-items-center">
     <div class="col-sm-4">
     </div>
-    <div class="col-sm-4" style="background-color: #f2f4f4; border-radius: 6px;">
+    <div class="col-sm-4" style="background-color: #fff; border-radius: 6px;">
 
       <!-- edit and view a contact's note -->
       <form action="edit-note.php" method="POST" style="padding: 10px;"> <!-- form header -->

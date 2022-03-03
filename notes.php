@@ -1,6 +1,5 @@
 <?php
 session_start();
-//var_dump($_SESSION['msg_to_note']);
 
 include_once "db.php";
 if ($_GET) {
@@ -10,7 +9,6 @@ if ($_GET) {
 }
 
 if ($_POST) {
-  var_dump($_POST);
   $title = $_POST['title'];
   $people_id = $_POST['people-id'];
   $content = $_POST['content'];
@@ -60,12 +58,12 @@ if ($_POST) {
 <div class="container">
   <div class="row align-items-base">
     <div class="col-sm-1"></div>
-    <div class="col-sm-4" style="background-color: #f2f4f4; padding: 10px; margin-right: 10px; border-radius: 6px;">
+    <div class="col-sm-4" style="background-color: #fff; padding: 10px; margin-right: 10px; border-radius: 6px;">
 
       <!-- create-note form -->
       <form action="notes.php" method="POST" class="p-2"> <!-- form header -->    <!-- wk here -->
-        <input type="hidden" value="<?php echo $id;?>" name="people-id">
-        <input type="hidden" value="<?php echo $_SERVER['REQUEST_URI']; ?>" name="uri">
+        <input type="text" value="<?php echo $id;?>" name="people-id" hidden>
+        <input type="text" value="<?php echo $_SERVER['REQUEST_URI']; ?>" name="uri" hidden>
         <div class="mb-3">
           <label for="inputName" class="form-label">Title</label>
           <input type="text" class="form-control border border-2" name="title">        
@@ -78,10 +76,10 @@ if ($_POST) {
       </form>
 
     </div>
-    <div class="col-sm-6" style="background-color: #f2f4f4; border-radius: 6px;">          
+    <div class="col-sm-6" style="background-color: #fff; border-radius: 6px;">          
       <!-- list of notes from contact -->
       <div class="mb-3 p-2">
-        <table class="table table-striped">
+        <table class="table table-hover">
           <thead>
           <tr>
             <th scope="col" class="text-center">Id</th>
