@@ -1,6 +1,14 @@
 <?php
 session_start();
 
+$varsession = $_SESSION['user-name'];
+
+if ($varsession == null || $varsession = '') {
+  echo '<h3>You are not authorized to view this page</h3>';
+  echo '<h5>You do not have permission to view this directory or page using the credentials that you supplied.</h5>';
+  die();
+}
+
 // empty the note session value so that notes's load don't show the alert bar 
 $_SESSION['msg_to_note']=''; 
 
