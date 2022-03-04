@@ -94,7 +94,6 @@ if ($_POST) {
         <table class="table table-hover">
           <thead>
           <tr>
-            <th scope="col" class="text-center">Id</th>
             <th scope="col" class="text-center">Title</th>
             <th scope="col" class="text-center">Created</th>
             <th scope="col" class="text-center">Edit</th>
@@ -106,7 +105,7 @@ if ($_POST) {
             $sql = mysqli_query($conn, "SELECT * FROM notes WHERE people_id='$id'");
             while ($data = mysqli_fetch_row($sql)) { ?>
               <tr>              
-                <th scope="row"><?php echo $data[0] ?></th>
+                <th scope="row" hidden><?php echo $data[0] ?></th>
                 <td><?php echo $data[1] ?></td>
                 <td><?php echo $data[3] ?></td>
                 <td class="text-center"><a href="edit-note.php?id=<?php echo $data[0]?>&ctid=<?php echo $id; ?>"><i class="far fa-edit"></i></a></td>

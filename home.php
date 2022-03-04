@@ -91,7 +91,6 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE surname LIKE '%$v
       <table class="table table-hover">
         <thead class="table-light">
         <tr>
-          <th scope="col" class="text-center">Id</th>
           <th scope="col" class="text-center">Name</th>
           <th scope="col" class="text-center">Surname</th>
           <th scope="col" class="text-center">Phone</th>
@@ -113,7 +112,7 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE surname LIKE '%$v
 
         while ($data = mysqli_fetch_row($sql)) { ?>
           <tr>              
-            <th scope="row" class="text-center"><?php echo $data[0] ?></th>
+            <th scope="row" class="text-center" hidden><?php echo $data[0] ?></th>
             <td class="text-center"><?php echo $data[1] ?></td>
             <td class="text-center"><?php echo $data[2] ?></td>
             <td class="text-center"><?php echo $data[3] ?></td>
