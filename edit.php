@@ -1,7 +1,12 @@
 <?php
 session_start();
 
-$varsession = $_SESSION['user-name'];
+if(isset($_SESSION['user-name'])) {
+  $varsession = $_SESSION['user-name'];
+} else {
+  $varsession = "";
+}
+
 if ($varsession == null || $varsession = '') {
   echo '<h3>You are not authorized to view this page</h3>';
   echo '<h5>You do not have permission to view this directory or page using the credentials that you supplied.</h5>';
