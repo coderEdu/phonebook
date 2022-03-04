@@ -15,7 +15,7 @@
     <!-- FontAwesome Kit -->
     <script src="https://kit.fontawesome.com/cf3e3a7ec6.js" crossorigin="anonymous"></script>
 
-    <title>CRUD of Contacts</title>
+    <title>PhoneBook Management</title>
   </head>
   <body style="background-color: #f0f4f7;">
     <div class="container-fluid">
@@ -26,15 +26,19 @@
         <div class="col-sm-3">
           <h2 style="display: inline; font-family: Verdana;"><?php echo strtoupper("PhoneBook Management") ?></h2>
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
           <h3 class="align-middle text-end mb-0"><?php if (isset($_SESSION['user-name'])) {echo 'Hi '.$_SESSION['user-name'].'!';} ?></h3>
         </div>
         <div class="col-sm-1">
+
+        <?php if (isset($_SESSION['user-name'])) { ?>          
           <form action="logout.php" method="POST">
             <input type="submit" class="btn btn-danger" name="logout" value="Log out">
           </form>
+        <?php } ?>      
+          
         </div>
-        <div class="col-sm-2"></div>
+        <div class="col-sm-1"></div>
         <?php include "includes/search-bar.php"; ?>
       </div>
     </div>
