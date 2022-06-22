@@ -26,8 +26,8 @@ if ($_GET) {
 
 if ($_POST) {
   $id = $_POST['id'];
-  $title = $_POST['title'];
-  $content = $_POST['content'];
+  $title = addslashes($_POST['title']);
+  $content = addslashes($_POST['content']);
 
   mysqli_query($conn, "UPDATE notes SET title = '$title', note = '$content' WHERE id = '$id'");
 

@@ -22,8 +22,8 @@ if ($_GET) {
 
 if ($_POST) {
   $id = $_POST['id'];
-  $name = $_POST['name'];
-  $surname = $_POST['surname'];
+  $name = addslashes($_POST['name']);
+  $surname = addslashes($_POST['surname']);
   $phone = $_POST['phone'];
 
   include_once "db.php";
