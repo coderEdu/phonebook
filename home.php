@@ -7,6 +7,10 @@ if(isset($_SESSION['user-name'])) {
   $varsession = "";
 }
 
+if (isset($_SESSION['logged_id'])) {
+  $logged_id = $_SESSION['logged_id'];
+}
+
 if ($varsession == null || $varsession == '') {
   echo '<h3>You are not authorized to view this page</h3>';
   echo '<h5>You do not have permission to view this directory or page using the credentials that you supplied.</h5>';
@@ -22,7 +26,7 @@ if ($_POST) {
   $phone = $_POST['phone'];
 
   include_once "db.php";
-  $insert_query = mysqli_query($conn, "INSERT INTO people (name,surname,phone) VALUES ('$name','$surname','$phone')");
+  $insert_query = mysqli_query($conn, "INSERT INTO people (name,surname,phone,log_id) VALUES ('$name','$surname','$phone','$logged_id')");
 
   $_SESSION['msg_to_contact']='created';
 }
@@ -101,7 +105,7 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE surname LIKE '%$v
       </thead>
       <tbody>
         <?php include "db.php"; ?>
-        <?php $star_query = mysqli_query($conn, "SELECT * FROM people"); ?>
+        <?php $star_query = mysqli_query($conn, "SELECT * FROM people WHERE log_id = $logged_id"); ?>
         <?php
 
         if ($value=='') {

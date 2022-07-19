@@ -10,6 +10,7 @@ if ($_POST) {
   
   if (mysqli_num_rows($query)===1) {
     $row = mysqli_fetch_row($query);
+    $_SESSION['logged_id']=$row[0];
     $_SESSION['user-name']=$row[1];
     $_SESSION['user-pass']=$row[2];
     header("Location: home.php");
@@ -24,6 +25,7 @@ if ($_POST) {
     <div class="col-sm-4">
     </div>
     <div class="col-sm-4" style="background-color: #f0f4f7; border-radius: 6px;">
+
       <!-- login form -->
       <form action="index.php" method="POST" style="padding: 10px;">
         <div class="mb-3">
@@ -38,6 +40,7 @@ if ($_POST) {
           <button type="submit" class="btn btn-success">log In</button>
         </div>
       </form>
+
     </div>
   </div>
 </div>
