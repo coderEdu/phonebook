@@ -38,7 +38,7 @@ if (!isset($_GET['search'])) {
 }
 
 include_once "db.php";
-$search_query = mysqli_query($conn,"SELECT * FROM people WHERE surname LIKE '%$value%' OR name LIKE '%$value%'");
+$search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged_id' AND (surname LIKE '%$value%' OR name LIKE '%$value%')");
 ?>
 
 <?php include "includes/header.php"; ?>
