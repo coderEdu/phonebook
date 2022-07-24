@@ -97,7 +97,7 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged
         <tr>
           <th scope="col" class="text-center">Name</th>
           <th scope="col" class="text-center">Surname</th>
-          <th scope="col" class="text-center">Phone</th>
+          <th scope="col" class="text-center"><i class="fa fa-duotone fa-phone"></i> Phone</th>
           <th scope="col" class="text-center">Notes</th>
           <th scope="col" class="text-center">Edit</th>
           <th scope="col" class="text-center">Delete</th>
