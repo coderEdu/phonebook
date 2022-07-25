@@ -73,7 +73,7 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged
 </div>
 <div class="container-md">
   <div class="row align-items-start">
-    <div class="col-sm-3 p-4" style="background-color: #fff; padding: 10px; margin-right: 20px; border-radius: 6px;">
+    <div class="col-sm-3 p-4 shadow p-3 mb-5 bg-body rounded" style="background-color: #fff; padding: 10px; margin-right: 20px; border-radius: 6px;">
 
       <!-- add new contact's form -->
       <form action="home.php" method="POST">
@@ -91,7 +91,7 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged
 
     </div>
 
-    <div class="col-sm-8 p-3" style="background-color: #fff; border-radius: 6px;">
+    <div class="col-sm-8 p-3 shadow p-3 mb-5 bg-body rounded" style="background-color: #fff; border-radius: 6px;">
       <table class="table table-hover">
         <thead class="table-light">
         <tr>

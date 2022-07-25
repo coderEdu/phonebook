@@ -29,7 +29,7 @@
           <h2 style="display: inline; font-family: Verdana;"><?php echo strtoupper("PhoneBook Management") ?></h2>
         </div>
         <div class="col-sm-3">
-          <h3 class="align-middle text-end mb-0"><?php if (isset($_SESSION['user-name'])) {echo 'Hi \''.strtolower($_SESSION['user-name']).'\'';} ?></h3>
+          <h3 class="align-middle text-end mb-0"><?php if (isset($_SESSION['user-name'])) {echo 'Hello, '.$_SESSION['user-name'];} ?></h3>
         </div>
         <div class="col-sm-1">
 
