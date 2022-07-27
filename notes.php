@@ -62,7 +62,7 @@ if ($_POST) {
     <div class="row align-items-center mb-3">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-      <h4 class="text-center"><?php echo $row[1] . " " . $row[2] . " -> " . "Notes"; ?></h4>
+      <h5 class="text-center" style="color: grey;"><?php echo $row[1] . " " . $row[2] . " -> " . "Notes"; ?></h5>
     </div>
   </div>
 </div>
@@ -70,7 +70,7 @@ if ($_POST) {
 <div class="container">
   <div class="row align-items-base">
     <div class="col-sm-1"></div>
-    <div class="col-sm-4" style="background-color: #fff; padding: 10px; margin-right: 10px; border-radius: 6px;">
+    <div class="col-sm-4 shadow p-3 mb-5 bg-body rounded" style="background-color: #fff; padding: 10px; margin-right: 10px; border-radius: 6px;">
 
       <!-- create-note form -->
       <form action="notes.php" method="POST" class="p-2"> <!-- form header -->    <!-- wk here -->
@@ -88,7 +88,7 @@ if ($_POST) {
       </form>
 
     </div>
-    <div class="col-sm-6" style="background-color: #fff; border-radius: 6px;">          
+    <div class="col-sm-6 shadow p-3 mb-5 bg-body rounded" style="background-color: #fff; border-radius: 6px;">          
       <!-- list of notes from contact -->
       <div class="mb-3 p-2">
         <table class="table table-hover">

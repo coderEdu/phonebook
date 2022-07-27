@@ -42,13 +42,13 @@ if ($_POST) {
   <div class="row align-items-center mb-3">
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
-      <h4 class="text-center"><?php echo $ct_row[1]." ".$ct_row[2] . " -> " . "Notes" . " -> " . $row[1]; ?></h4>
+      <h5 class="text-center" style="color: grey;"><?php echo $ct_row[1]." ".$ct_row[2] . " -> " . "Notes" . " -> " . $row[1]; ?></h5>
     </div>
   </div>
   <div class="row align-items-center">
     <div class="col-sm-4">
     </div>
-    <div class="col-sm-4" style="background-color: #fff; border-radius: 6px;">
+    <div class="col-sm-4 shadow p-3 mb-5 bg-body rounded" style="background-color: #fff; border-radius: 6px;">
 
       <!-- edit and view a contact's note -->
       <form action="edit-note.php" method="POST" style="padding: 10px;"> <!-- form header -->

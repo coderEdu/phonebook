@@ -9,6 +9,10 @@ if(isset($_SESSION['user-name'])) {
   $varsession = "";
 }
 
+if (isset($_SESSION['logged_id'])) {
+  $logged_id = $_SESSION['logged_id'];
+}
+
 if ($varsession == null || $varsession == '') {
   echo '<h3>You are not authorized to view this page</h3>';
   echo '<h5>You do not have permission to view this directory or page using the credentials that you supplied.</h5>';
@@ -24,7 +28,7 @@ if ($_POST) {
   $phone = $_POST['phone'];
 
   include_once "db.php";
-  $insert_query = mysqli_query($conn, "INSERT INTO people (name,surname,phone) VALUES ('$name','$surname','$phone')");
+  $insert_query = mysqli_query($conn, "INSERT INTO people (name,surname,phone,log_id) VALUES ('$name','$surname','$phone','$logged_id')");
 
   $_SESSION['msg_to_contact']='created';
 }
@@ -36,7 +40,7 @@ if (!isset($_GET['search'])) {
 }
 
 include_once "db.php";
-$search_query = mysqli_query($conn,"SELECT * FROM people WHERE surname LIKE '%$value%' OR name LIKE '%$value%'");
+$search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged_id' AND (surname LIKE '%$value%' OR name LIKE '%$value%')");
 ?>
 
 <?php include "includes/header.php"; ?>
@@ -71,7 +75,7 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE surname LIKE '%$v
 </div>
 <div class="container-md">
   <div class="row align-items-start">
-    <div class="col-sm-3 p-4" style="background-color: #fff; padding: 10px; margin-right: 20px; border-radius: 6px;">
+    <div class="col-sm-3 p-4 shadow p-3 mb-5 bg-body rounded" style="background-color: #fff; padding: 10px; margin-right: 20px; border-radius: 6px;">
 
       <!-- add new contact's form -->
       <form action="home.php" method="POST">
@@ -89,13 +93,13 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE surname LIKE '%$v
 
     </div>
 
-    <div class="col-sm-8 p-3" style="background-color: #fff; border-radius: 6px;">
+    <div class="col-sm-8 p-3 shadow p-3 mb-5 bg-body rounded" style="background-color: #fff; border-radius: 6px;">
       <table class="table table-hover">
         <thead class="table-light">
         <tr>
           <th scope="col" class="text-center">Name</th>
           <th scope="col" class="text-center">Surname</th>
-          <th scope="col" class="text-center">Phone</th>
+          <th scope="col" class="text-center"><i class="fa fa-duotone fa-phone"></i> Phone</th>
           <th scope="col" class="text-center">Notes</th>
           <th scope="col" class="text-center">Edit</th>
           <th scope="col" class="text-center">Delete</th>
@@ -103,7 +107,7 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE surname LIKE '%$v
       </thead>
       <tbody>
         <?php include "db.php"; ?>
-        <?php $star_query = mysqli_query($conn, "SELECT * FROM people"); ?>
+        <?php $star_query = mysqli_query($conn, "SELECT * FROM people WHERE log_id = $logged_id"); ?>
         <?php
 
         if ($value=='') {

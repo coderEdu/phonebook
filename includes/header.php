@@ -1,4 +1,4 @@
-<?php if (!isset($_SESSION)) session_start(); ?>
+<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
   <head>

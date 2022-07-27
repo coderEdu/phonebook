@@ -41,7 +41,7 @@ if ($_POST) {
   <div class="row align-items-center">
     <div class="col-sm-4">
     </div>
-    <div class="col-sm-4" style="background-color: #fff; border-radius: 6px;">
+    <div class="col-sm-4 shadow p-3 mb-5 bg-body rounded" style="background-color: #fff; border-radius: 6px;">
       <!-- edit a contact's form -->
       <form action="edit.php" method="POST" style="padding: 10px;">
         <div class="mb-3">
