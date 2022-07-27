@@ -42,7 +42,7 @@ if ($_POST) {
   <div class="row align-items-center mb-3">
     <div class="col-sm-3"></div>
     <div class="col-sm-6">
-      <h4 class="text-center"><?php echo $ct_row[1]." ".$ct_row[2] . " -> " . "Notes" . " -> " . $row[1]; ?></h4>
+      <h5 class="text-center" style="color: grey;"><?php echo $ct_row[1]." ".$ct_row[2] . " -> " . "Notes" . " -> " . $row[1]; ?></h5>
     </div>
   </div>
   <div class="row align-items-center">
