@@ -21,9 +21,9 @@ if ($_GET) {
 }
 
 if ($_POST) {
-  $title = $_POST['title'];
-  $people_id = $_POST['people-id'];
-  $content = $_POST['content'];
+  $title = addslashes($_POST["title"]);
+  $people_id = $_POST["people-id"];
+  $content = addslashes($_POST["content"]);
   $sql = mysqli_query($conn, "INSERT INTO notes (title, note, people_id) VALUES ('$title','$content','$people_id')");
 
   $_SESSION['msg_to_note']='note-created';

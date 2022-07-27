@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+  session_start();
+}
 
 if(isset($_SESSION['user-name'])) {
   $varsession = $_SESSION['user-name'];
@@ -17,8 +19,8 @@ if ($varsession == null || $varsession == '') {
 $_SESSION['msg_to_note']=''; 
 
 if ($_POST) {
-  $name = $_POST['name'];
-  $surname = $_POST['surname'];
+  $name = addslashes($_POST['name']);
+  $surname = addslashes($_POST['surname']);
   $phone = $_POST['phone'];
 
   include_once "db.php";

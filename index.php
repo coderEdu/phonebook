@@ -19,11 +19,11 @@ if ($_POST) {
 
 <?php include "includes/header.php"; ?>
 <div class="container">
-  <br><br>
+  <br/><br/><br/><br/>
   <div class="row align-items-center">
     <div class="col-sm-4">
     </div>
-    <div class="col-sm-4" style="background-color: #fff; border-radius: 6px;">
+    <div class="col-sm-4" style="background-color: #f0f4f7; border-radius: 6px;">
       <!-- login form -->
       <form action="index.php" method="POST" style="padding: 10px;">
         <div class="mb-3">
