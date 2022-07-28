@@ -39,6 +39,6 @@
           
         </div>
         <div class="col-sm-1"></div>
-        <?php include "includes/search-bar.php"; ?>
+        <?php if (isset($_SESSION['user-name'])) {include "includes/search-bar.php";} ?>
       </div>
     </div>
