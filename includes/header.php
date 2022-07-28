@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php if (!isset($_SESSION)) session_start(); ?>
 <!doctype html>
 <html lang="en">
   <head> 
@@ -13,9 +13,7 @@
     <!--<link rel="stylesheet" href="css/style.css">-->
 
     <!-- FontAwesome Kit -->
-    <!-- <script src="https://kit.fontawesome.com/cf3e3a7ec6.js" crossorigin="anonymous"></script> -->
-    <script src="https://kit.fontawesome.com/ff8683a659.js" crossorigin="anonymous"></script>
-
+    <script src="https://kit.fontawesome.com/cf3e3a7ec6.js" crossorigin="anonymous"></script>
 
     <title>PhoneBook Management</title>
   </head>
@@ -23,13 +21,13 @@
     <div class="container-fluid">
       <div class="row text-light p-3 align-items-center" style="border-bottom: 9px solid #6495ED; background-color: #607bab;">
         <div class="col-sm-1" style="width: 80px;">
-          <a href="home.php"><img src="img/iPhone-icon.png" alt="" width="84"></a>
+          <img src="img/iPhone-icon.png" alt="" width="84">
         </div>
         <div class="col-sm-3">
           <h2 style="display: inline; font-family: Verdana;"><?php echo strtoupper("PhoneBook Management") ?></h2>
         </div>
         <div class="col-sm-3">
-          <h3 class="align-middle text-end mb-0"><?php if (isset($_SESSION['user-name'])) {echo 'Hello, '.$_SESSION['user-name'];} ?></h3>
+          <h3 class="align-middle text-end mb-0"><?php if (isset($_SESSION['user-name'])) {echo 'Hi '.$_SESSION['user-name'].'!';} ?></h3>
         </div>
         <div class="col-sm-1">
 
@@ -41,6 +39,6 @@
           
         </div>
         <div class="col-sm-1"></div>
-        <?php if ($_SESSION['show_searchBar']==true) { include "includes/search-bar.php"; } ?>
+        <?php include "includes/search-bar.php"; ?>
       </div>
     </div>

@@ -27,7 +27,10 @@ if ($_POST) {
     <div class="col-sm-4">
     </div>
     <div class="col-sm-4" style="background-color: #f0f4f7; border-radius: 6px;">
+<<<<<<< HEAD
+=======
 
+>>>>>>> c916b41be0abf9335c3e271f89c5afa3792654a2
       <!-- login form -->
       <form action="index.php" method="POST" style="padding: 10px;">
         <div class="mb-3">

@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (!isset($_SESSION)) {
+  session_start();
+}
 
 if(isset($_SESSION['user-name'])) {
   $varsession = $_SESSION['user-name'];
