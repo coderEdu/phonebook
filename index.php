@@ -6,6 +6,7 @@ if ($_POST) {
   $pass = $_POST['pass'];
 
   $_SESSION['show_searchBar']=true;
+  $_SESSION['go_home']=true;
 
   include_once "db.php";
   $query = mysqli_query($conn, "SELECT * FROM login WHERE user = '$user' AND pass = '$pass'");

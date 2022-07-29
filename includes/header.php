@@ -21,10 +21,18 @@
     <div class="container-fluid">
       <div class="row text-light p-3 align-items-center" style="border-bottom: 9px solid #6495ED; background-color: #607bab;">
         <div class="col-sm-1" style="width: 80px;">
-          <img src="img/iPhone-icon.png" alt="" width="84">
+          <?php
+          define('BASE_URL', 'http://localhost:8080/phonebook/home.php'); 
+          if (isset($_SESSION['go_home'])) {
+            $url=BASE_URL;
+          } else { 
+            $url="";
+          }
+          ?>
+          <a href="<?php echo $url ?>"><img src="img/iPhone-icon.png" alt="" width="84"></a>
         </div>
         <div class="col-sm-3">
-          <h2 style="display: inline; font-family: Verdana;"><?php echo strtoupper("PhoneBook Management") ?></h2>
+          <h2 style="display: inline; font-family: Verdana;"><?php echo strtoupper("PhoneBook Management")?></h2>
         </div>
         <div class="col-sm-3">
           <h3 class="align-middle text-end mb-0"><?php if (isset($_SESSION['user-name'])) {echo 'Hi '.$_SESSION['user-name'].'!';} ?></h3>
