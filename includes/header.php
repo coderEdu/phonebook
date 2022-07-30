@@ -19,10 +19,13 @@
   </head>
   <body style="background-color: #f0f4f7;">
     <div class="container-fluid">
+      <?php //echo getenv("HOME"); ?>
       <div class="row text-light p-3 align-items-center" style="border-bottom: 9px solid #6495ED; background-color: #607bab;">
         <div class="col-sm-1" style="width: 80px;">
           <?php
-          define('BASE_URL', 'http://localhost:8080/phonebook/home.php'); 
+          $home=$_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . 'home.php';
+          $home2=getenv("HOME");
+          define('BASE_URL',$home2); 
           if (isset($_SESSION['go_home'])) {
             $url=BASE_URL;
           } else { 
