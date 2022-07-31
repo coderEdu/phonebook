@@ -34,7 +34,7 @@
           <a href="<?php echo $url ?>"><img src="img/iPhone-icon.png" alt="" width="84"></a>
         </div>
         <div class="col-sm-3">
-          <h2 style="display: inline; font-family: Verdana;"><?php echo strtoupper("PhoneBook Management")?></h2>
+          <h2 style="display: inline; font-family: Verdana;"><?php echo strtoupper("PhoneBook Manager")?></h2>
         </div>
         <div class="col-sm-3">
           <h3 class="align-middle text-end mb-0"><?php if (isset($_SESSION['user-name'])) {echo 'Hi '.$_SESSION['user-name'].'!';} ?></h3>

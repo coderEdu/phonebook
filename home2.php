@@ -91,7 +91,7 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged
       </form>
     </div>
 
-    <div class="col-sm-8 p-3 shadow p-3 mb-5 bg-body rounded" style="background-color: #fff; min-height: 585px; border-radius: 6px;">
+    <div class="col-sm-8 p-3 shadow p-3 mb-5 bg-body rounded" style="background-color: #fff; border-radius: 6px;">
       <table class="table table-hover">
         <thead class="table-light">
         <tr>
