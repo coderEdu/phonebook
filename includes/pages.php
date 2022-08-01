@@ -1,4 +1,4 @@
-<div class="pagination_bottom">   
+<div class="" style="margin-top:40px;">   
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
         <?php
