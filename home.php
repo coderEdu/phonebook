@@ -107,7 +107,7 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged
       </table>
     </div>
 
-    <div class="col-sm-3" style="padding: 10px; margin-right: 20px; border-radius: 6px;"></div>
+    <div class="col-sm-3"></div>
     <!-- este div se superpone al otro de 8 cols para ocultar la paginación para q quede fija-->
     <div class="col-sm-8" style="margin-top:-70px;"> 
       <?php include "includes/pages.php"; ?>
