@@ -35,7 +35,8 @@ $result = mysqli_query($conn, $query);
     if ($value=='') {
         $sql = $result;
     } else {
-        $sql = $search_query;
+        //$sql = $search_query;
+        header ("../search.php");
     }
 
     while ($data = mysqli_fetch_row($sql)) { ?>

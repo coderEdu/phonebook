@@ -47,30 +47,35 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged
 
 <div class="container-fluid">
   <div class="row align-items-center">  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"> </script>
+    <script>
+      setTimeout(function() { $('#success').fadeIn(1800,"swing"); }, 50);
+      setTimeout(function() { $('#success').fadeOut(2000); }, 2850);
+    </script>
+    <?php
+    if (isset($_SESSION['msg_to_contact'])) {
+      if ($_SESSION['msg_to_contact']=='updated') {
+        $text='Changes were saved successfully';
+      } else if ($_SESSION['msg_to_contact']=='contact-deleted') {
+        $text='Contact deleted successfully';
+      } else if ($_SESSION['msg_to_contact']=='created') {
+        $text='A new contact was created';
+      }       
+    } 
+    ?>
+    <?php
+    $show_alert = isset($_SESSION['msg_to_contact']) && strlen($_SESSION['msg_to_contact'] > 0);
+    if ($show_alert) { ?>
+      <div class="col text-center alert alert-success" role="alert" id="success" style="display: none;"><?php echo $text; ?></div>
+    <?php } ?>
 
     <?php $_SESSION['msg_to_contact']=''; ?>
-    <br><br>
+      <br><br>
   </div>
 </div>
 <div class="container-md">
   <div class="row align-items-start">
-    <div class="col-sm-3 p-4 shadow p-3 mb-5 bg-body rounded" style="background-color: #fff; padding: 10px; margin-right: 20px; border-radius: 6px;">
-      <!-- add new contact's form -->
-      <form action="home.php" method="POST">
-        <div class="mb-3">
-          <input type="text" class="form-control border border-2" name="name" aria-describedby="" placeholder="Name">        
-        </div>
-        <div class="mb-3">
-          <input type="text" class="form-control border border-2" name="surname" placeholder="Surname">
-        </div>
-        <div class="mb-3">
-          <input type="text" class="form-control border border-2" name="phone" placeholder="Phone">
-        </div>
-        <button type="submit" class="btn btn-danger">Add to contacts</button>
-      </form>
-    </div>
-
-    <div class="col-sm-8 p-3 shadow p-3 bg-body rounded" style="background-color: #fff; min-height: 580px; border-radius: 6px;">
+    <div class="col-sm-12 p-3 shadow p-3 bg-body rounded" style="background-color: #fff; min-height: 580px; border-radius: 6px;">
       <table class="table table-hover">
         <thead class="table-light">
         <tr>
@@ -85,10 +90,7 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged
         <?php include "includes/pag.php"; ?>
       </table>
     </div>
-
-    <div class="col-sm-3"></div>
-    <!-- este div se superpone al otro de 8 cols para ocultar la paginación para q quede fija-->
-    <div class="col-sm-8" style="margin-top:-70px;"> 
+    <div class="col-sm-12" style="margin-top:-70px;"> 
       <?php include "includes/pages.php"; ?>
     </div>
   </div>
