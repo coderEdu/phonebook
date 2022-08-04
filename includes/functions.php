@@ -10,8 +10,8 @@ function get_home_url() {
 function has_notes($id) {
     include("db.php");
     $query = mysqli_query($conn, "SELECT COUNT(id) as total FROM `notes` WHERE people_id = $id");
-    $result=mysqli_fetch_assoc($query);
-    $r = $result['total'] > 0 ? true : false;
+    $total_of_notes=mysqli_fetch_assoc($query);
+    $r = $total_of_notes['total'] > 0 ? true : false;
     return $r;
 }
 ?>

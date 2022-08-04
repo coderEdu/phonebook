@@ -82,7 +82,24 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged
           <th scope="col" class="text-center">Delete</th>
         </tr>
       </thead>
-        <?php include "includes/pag.php"; ?>
+
+      <?php
+      // Get total number of pages by logged
+      $query = "SELECT * FROM people WHERE log_id = $logged_id";  
+      $result = mysqli_query($conn, $query);  
+      $number_of_result = mysqli_num_rows($result);  
+
+      var_dump($result);
+      
+      if ($number_of_result>=10) {
+        echo "> 10";
+        include "includes/pag.php";
+      } else {
+        echo "< 10";
+        include "includes/short_list.php";
+      }
+
+      ?>
       </table>
     </div>
 
