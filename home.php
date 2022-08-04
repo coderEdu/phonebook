@@ -86,16 +86,16 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged
       <?php
       // Get total number of pages by logged
       $query = "SELECT * FROM people WHERE log_id = $logged_id";  
-      $result = mysqli_query($conn, $query);  
-      $number_of_result = mysqli_num_rows($result);  
+      $home_result = mysqli_query($conn, $query);  
+      $number_of_result = mysqli_num_rows($home_result);  
 
-      var_dump($result);
+      //var_dump($result);
       
       if ($number_of_result>=10) {
-        echo "> 10";
+        //echo "> 10";
         include "includes/pag.php";
       } else {
-        echo "< 10";
+        //echo "< 10";
         include "includes/short_list.php";
       }
 
@@ -106,7 +106,7 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged
     <div class="col-sm-3"></div>
     <!-- este div se superpone al otro de 8 cols para ocultar la paginación para q quede fija-->
     <div class="col-sm-8" style="margin-top:-70px;"> 
-      <?php include "includes/pages.php"; ?>
+      <?php if ($number_of_result>=10) { include "includes/pages.php"; } ?>
     </div>
   </div>
 
@@ -116,5 +116,5 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged
     <div class="col-sm-4 align-items-center">      
     </div>
   </div>
-</div>
+</div> <!-- hola -->
 <?php include "includes/footer.php"; ?>
