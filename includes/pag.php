@@ -7,20 +7,21 @@ if(!isset($_GET['page'])) {
 
 $results_per_page = 10;  
 $page_first_result = ($page-1) * $results_per_page; 
-
-// Get total number of pages by logged
-$query = "SELECT * FROM people WHERE log_id = $logged_id";  
-$result = mysqli_query($conn, $query);  
-$number_of_result = mysqli_num_rows($result);  
   
 // determine the total number of pages available  
 $number_of_pages = ceil ($number_of_result / $results_per_page);
 $pagLink = "";
 
-// Retrieve data and display on webpage
-// The below code is used to retrieve the data from database and display on the webpages that are divided accordingly.
-$query = "SELECT * FROM people WHERE log_id = $logged_id LIMIT " . $page_first_result . ',' . $results_per_page;  
-$result = mysqli_query($conn, $query);  
+if (!isset($_GET['search'])) {
+    // Retrieve data and display on webpage
+    // The below code is used to retrieve the data from database and display on the webpages that are divided accordingly.
+    $query = "SELECT * FROM people WHERE log_id = $logged_id LIMIT " . $page_first_result . ',' . $results_per_page;  
+    $result = mysqli_query($conn, $query);  
+} else {
+    //$query = "SELECT * FROM people WHERE log_id = $logged_id AND (surname LIKE '%$value%' OR name LIKE '%$value%') LIMIT " . $page_first_result . ',' . $results_per_page;;
+    //$result = mysqli_query($conn, $query);  
+}
+$number_of_result = mysqli_num_rows($home_result);
   
 //display the retrieved result on the webpage  
 //while ($row = mysqli_fetch_array($result)) {  
@@ -32,14 +33,7 @@ $result = mysqli_query($conn, $query);
     <?php //$star_query = mysqli_query($conn, "SELECT * FROM people WHERE log_id = $logged_id"); ?>
     <?php
 
-    if ($value=='') {
-        $sql = $result;
-    } else {
-        //$sql = $search_query;
-        //header ("../search.php");
-    }
-
-    while ($data = mysqli_fetch_row($sql)) { ?>
+    while ($data = mysqli_fetch_row($result)) { ?>
         <tr>              
         <th scope="row" class="text-center" hidden><?php echo $data[0] ?></th>
         <td class="text-center"><?php echo $data[1] ?></td>

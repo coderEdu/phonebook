@@ -21,11 +21,5 @@
         </ul>
     </nav>
     <?php
-    /*
-    echo '$page';
-    var_dump($page);
-    echo '$number_of_pages';
-    var_dump($number_of_pages);
-    */
     ?>
 </div>
