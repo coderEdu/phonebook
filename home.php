@@ -84,8 +84,6 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged
       </thead>
 
       <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
       if (!isset($_GET['search'])) {
         // Get total number of pages by logged
         $query = "SELECT * FROM people WHERE log_id = $logged_id";  // normal query
@@ -98,22 +96,18 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged
         var_dump($value);
       }
       $number_of_result = mysqli_num_rows($home_result);  // result of query that executes
-=======
       // Get total number of pages by logged
       $query = "SELECT * FROM people WHERE log_id = $logged_id";  
       $result = mysqli_query($conn, $query);  
       $number_of_result = mysqli_num_rows($result);  
 
       var_dump($result);
->>>>>>> parent of fab23fe (so far so good!)
-=======
       // Get total number of pages by logged
       $query = "SELECT * FROM people WHERE log_id = $logged_id";  
       $home_result = mysqli_query($conn, $query);  
       $number_of_result = mysqli_num_rows($home_result);  
 
       //var_dump($result);
->>>>>>> parent of 4bcb239 (more progress)
       
       if ($number_of_result>=10) {
         echo "> 10";
