@@ -84,6 +84,7 @@ include_once "db.php";
       </thead>
 
       <?php
+<<<<<<< HEAD
       if (!isset($_GET['search'])) {
         // Get total number of pages by logged
         $query = "SELECT * FROM people WHERE log_id = $logged_id";  // normal query
@@ -96,12 +97,20 @@ include_once "db.php";
         var_dump($value);
       }
       $number_of_result = mysqli_num_rows($home_result);  // result of query that executes
+=======
+      // Get total number of pages by logged
+      $query = "SELECT * FROM people WHERE log_id = $logged_id";  
+      $result = mysqli_query($conn, $query);  
+      $number_of_result = mysqli_num_rows($result);  
+
+      var_dump($result);
+>>>>>>> parent of fab23fe (so far so good!)
       
       if ($number_of_result>=10) {
-        //echo "> 10";
+        echo "> 10";
         include "includes/pag.php";
       } else {
-        //echo "< 10";
+        echo "< 10";
         include "includes/short_list.php";
       }
 
@@ -112,7 +121,7 @@ include_once "db.php";
     <div class="col-sm-3"></div>
     <!-- este div se superpone al otro de 8 cols para ocultar la paginación para q quede fija-->
     <div class="col-sm-8" style="margin-top:-70px;"> 
-      <?php if ($number_of_result>=10) { include "includes/pages.php"; } ?>
+      <?php include "includes/pages.php"; ?>
     </div>
   </div>
 
@@ -122,5 +131,5 @@ include_once "db.php";
     <div class="col-sm-4 align-items-center">      
     </div>
   </div>
-</div> <!-- hola -->
+</div>
 <?php include "includes/footer.php"; ?>
