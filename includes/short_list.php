@@ -3,13 +3,8 @@
     <?php //$star_query = mysqli_query($conn, "SELECT * FROM people WHERE log_id = $logged_id"); ?>
     <?php
     
-    // Get total number of pages by logged
-    $query = "SELECT * FROM people WHERE log_id = $logged_id";  
-    $result = mysqli_query($conn, $query);  
-    //$number_of_result = mysqli_num_rows($result);  
-    
 
-    while ($data = mysqli_fetch_row($result)) { ?>
+    while ($data = mysqli_fetch_row($home_result)) { ?> <?php //$home_result comes from home.php ?>
         <tr>              
             <th scope="row" class="text-center" hidden><?php echo $data[0] ?></th>
             <td class="text-center"><?php echo $data[1] ?></td>

@@ -14,4 +14,19 @@ function has_notes($id) {
     $r = $total_of_notes['total'] > 0 ? true : false;
     return $r;
 }
+
+// queries
+function get_all_records_on_people($id) {
+    // Get total number of records on pepple table by logged_is
+    include("db.php");
+    $query = "SELECT * FROM people WHERE log_id = $id";
+    return mysqli_query($conn, $query);
+}
+
+function get_records_by_searhBar($id) {
+    // Get total number of records on pepple table by logged_is
+    include("db.php");
+    $query = "SELECT * FROM people WHERE log_id = $id AND (surname LIKE '%$value%' OR name LIKE '%$value%')";
+    return mysqli_query($conn, $query);
+}
 ?>

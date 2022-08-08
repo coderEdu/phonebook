@@ -44,6 +44,7 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged
 ?>
 
 <?php include "includes/header.php"; ?>
+<?php include_once "includes/functions.php"; ?>
 
 <div class="container-fluid">
   <div class="row align-items-center">  
@@ -85,35 +86,19 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged
 
       <?php
       if (!isset($_GET['search'])) {
-        // Get total number of pages by logged
-        $query = "SELECT * FROM people WHERE log_id = $logged_id";  // normal query
-        $home_result = mysqli_query($conn, $query);
-        //var_dump($home_result);
+        $home_result = get_all_records_on_people($logged_id);
       } else {
-        $query = "SELECT * FROM people WHERE log_id = $logged_id AND (surname LIKE '%$value%' OR name LIKE '%$value%')";  // search query
-        $home_result = mysqli_query($conn, $query);  
-        var_dump($home_result);
-        var_dump($value);
+        $home_result = get_records_by_searhBar($logged_id);  
       }
-      $number_of_result = mysqli_num_rows($home_result);  // result of query that executes
-      // Get total number of pages by logged
-      $query = "SELECT * FROM people WHERE log_id = $logged_id";  
-      $result = mysqli_query($conn, $query);  
-      $number_of_result = mysqli_num_rows($result);  
-
-      var_dump($result);
-      // Get total number of pages by logged
-      $query = "SELECT * FROM people WHERE log_id = $logged_id";  
-      $home_result = mysqli_query($conn, $query);  
-      $number_of_result = mysqli_num_rows($home_result);  
+      $number_of_result = mysqli_num_rows($home_result);  // result of query that executes  
 
       //var_dump($result);
       
       if ($number_of_result>=10) {
-        echo "> 10";
+        //echo "> 10";
         include "includes/pag.php";
       } else {
-        echo "< 10";
+        //echo "< 10";
         include "includes/short_list.php";
       }
 
