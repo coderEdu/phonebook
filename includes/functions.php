@@ -29,4 +29,11 @@ function get_records_by_searhBar($id) {
     $query = "SELECT * FROM people WHERE log_id = $id AND (surname LIKE '%$value%' OR name LIKE '%$value%')";
     return mysqli_query($conn, $query);
 }
+
+function get_records_by_limit($id,$fr,$rpp) {
+    // Get total number of records on pepple table by logged_is
+    include("db.php");
+    $query = "SELECT * FROM people WHERE log_id = $id LIMIT " . $fr . ',' . $rpp; 
+    return mysqli_query($conn, $query);
+}
 ?>

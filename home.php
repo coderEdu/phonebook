@@ -39,8 +39,6 @@ if (!isset($_GET['search'])) {
   $value = $_GET['search'];
 }
 
-include_once "db.php";
-$search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged_id' AND (surname LIKE '%$value%' OR name LIKE '%$value%')");
 ?>
 
 <?php include "includes/header.php"; ?>
@@ -85,22 +83,23 @@ $search_query = mysqli_query($conn,"SELECT * FROM people WHERE log_id = '$logged
       </thead>
 
       <?php
-      if (!isset($_GET['search'])) {
-        $home_result = get_all_records_on_people($logged_id);
-      } else {
-        $home_result = get_records_by_searhBar($logged_id);  
-      }
-      $number_of_result = mysqli_num_rows($home_result);  // result of query that executes  
+      $home_result = get_all_records_on_people($logged_id);
+      $number_of_result = mysqli_num_rows($home_result);  // result of query that it executes  
 
-      //var_dump($result);
+      if (!isset($_GET['search'])) {
+        if ($number_of_result>=10) {
+          //echo "> 10";
+          include "includes/pag.php";
+        } else {
+          //echo "< 10";
+          include "includes/short_list.php";
+        }
+      }/* else {
+        $home_result = get_records_by_searhBar($logged_id);  
+      }*/      
+
+      //var_dump($result);      
       
-      if ($number_of_result>=10) {
-        //echo "> 10";
-        include "includes/pag.php";
-      } else {
-        //echo "< 10";
-        include "includes/short_list.php";
-      }
 
       ?>
       </table>
