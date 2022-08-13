@@ -7,10 +7,6 @@ if(!isset($_GET['page'])) {
 include ("db.php");
 $results_per_page = 10;  
 $page_first_result = ($page-1) * $results_per_page; 
-
-// Get total number of pages by logged
-$result = get_all_records_on_people($logged_id);  
-$number_of_result = mysqli_num_rows($result);  
   
 // determine the total number of pages available  
 $number_of_pages = ceil ($number_of_result / $results_per_page);
@@ -18,23 +14,13 @@ $pagLink = "";
 
 // Retrieve data and display on webpage
 // The below code is used to retrieve the data from database and display on the webpages that are divided accordingly.
-$result = get_records_by_limit($logged_id,$page_first_result,$results_per_page); 
-  
+$pag_result = get_records_by_limit($logged_id,$page_first_result,$results_per_page); 
+
 //display the retrieved result on the webpage  
 ?>
 <tbody>
-    <?php include "db.php"; ?>
-    <?php //$star_query = mysqli_query($conn, "SELECT * FROM people WHERE log_id = $logged_id"); ?>
     <?php
-
-    if ($value=='') {
-        $sql = $result;
-    } else {
-        $sql = $search_query;
-        //header ("../search.php");
-    }
-
-    while ($data = mysqli_fetch_row($sql)) { ?>
+    while ($data = mysqli_fetch_row($pag_result)) { ?>
         <tr>              
         <th scope="row" class="text-center" hidden><?php echo $data[0] ?></th>
         <td class="text-center"><?php echo $data[1] ?></td>

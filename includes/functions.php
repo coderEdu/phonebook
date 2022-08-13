@@ -23,10 +23,10 @@ function get_all_records_on_people($id) {
     return mysqli_query($conn, $query);
 }
 
-function get_records_by_searhBar($id) {
+function get_records_by_searhBar($id,$val) {
     // Get total number of records on pepple table by logged_is
     include("db.php");
-    $query = "SELECT * FROM people WHERE log_id = $id AND (surname LIKE '%$value%' OR name LIKE '%$value%')";
+    $query = "SELECT * FROM people WHERE log_id = $id AND (surname LIKE '%$val%' OR name LIKE '%$val%')";
     return mysqli_query($conn, $query);
 }
 

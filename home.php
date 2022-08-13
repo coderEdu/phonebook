@@ -83,24 +83,19 @@ if (!isset($_GET['search'])) {
       </thead>
 
       <?php
-      $home_result = get_all_records_on_people($logged_id);
-      $number_of_result = mysqli_num_rows($home_result);  // result of query that it executes  
-
       if (!isset($_GET['search'])) {
-        if ($number_of_result>=10) {
-          //echo "> 10";
-          include "includes/pag.php";
-        } else {
-          //echo "< 10";
-          include "includes/short_list.php";
-        }
-      }/* else {
-        $home_result = get_records_by_searhBar($logged_id);  
-      }*/      
+        $home_result = get_all_records_on_people($logged_id);
+        $number_of_result = mysqli_num_rows($home_result);  // result of query that it executes  
+      } else {
+        $home_result = get_records_by_searhBar($logged_id,$_GET['search']);
+        $number_of_result = mysqli_num_rows($home_result);  // result of query that it executes  
+      }
 
-      //var_dump($result);      
-      
-
+      if ($number_of_result >= 10) {
+        include "includes/pag.php";
+      } else {
+        include "includes/short_list.php";
+      }
       ?>
       </table>
     </div>

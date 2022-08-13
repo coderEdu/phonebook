@@ -1,8 +1,6 @@
 <tbody>
     <?php include "db.php"; ?>
-    <?php //$star_query = mysqli_query($conn, "SELECT * FROM people WHERE log_id = $logged_id"); ?>
     <?php
-    
 
     while ($data = mysqli_fetch_row($home_result)) { ?> <?php //$home_result comes from home.php ?>
         <tr>              
