@@ -14,7 +14,11 @@ $pagLink = "";
 
 // Retrieve data and display on webpage
 // The below code is used to retrieve the data from database and display on the webpages that are divided accordingly.
-$pag_result = get_records_by_limit($logged_id,$page_first_result,$results_per_page); 
+if (!isset($_GET['search'])) {
+    $pag_result = get_records_by_limit($logged_id,$page_first_result,$results_per_page);  
+} else {
+    $pag_result = get_filtered_records_by_limit($logged_id,$_GET['search'],$page_first_result,$results_per_page); 
+}
 
 //display the retrieved result on the webpage  
 ?>
@@ -39,4 +43,3 @@ $pag_result = get_records_by_limit($logged_id,$page_first_result,$results_per_pa
         </tr>   
     <?php } ?>
 </tbody>   
-

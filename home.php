@@ -103,7 +103,7 @@ if (!isset($_GET['search'])) {
     <div class="col-sm-3"></div>
     <!-- este div se superpone al otro de 8 cols para ocultar la paginación para q quede fija-->
     <div class="col-sm-8" style="margin-top:-70px;"> 
-      <?php include "includes/pages.php"; ?>
+      <?php if (isset($page)) { include "includes/pages.php"; } ?>
     </div>
   </div>
 
