@@ -91,7 +91,7 @@ if (!isset($_GET['search'])) {
         $number_of_result = mysqli_num_rows($home_result);  // result of query that it executes  
       }
 
-      if ($number_of_result >= 10) {
+      if ($number_of_result > 10) {
         include "includes/pag.php";
       } else {
         include "includes/short_list.php";
