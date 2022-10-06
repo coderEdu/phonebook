@@ -5,7 +5,7 @@
         ?>
         <?php if ($page >= 2) { ?>   
             <?php if (isset($_GET['search'])) { ?>
-                <li class="page-item"><a class="page-link" href="<?php echo 'home.php?search='.$_GET['search'].'&page='.($page-1)?>">Next</a></li>
+                <li class="page-item"><a class="page-link" href="<?php echo 'home.php?search='.$_GET['search'].'&page='.($page-1)?>">Previous</a></li>
             <?php } else { ?>
                 <li class="page-item"><a class="page-link" href="<?php echo 'home.php?page='.($page-1)?>">Previous</a></li> 
             <?php } ?>
