@@ -25,13 +25,11 @@
           <?php
           include_once('functions.php');
 
-          if (isset($_SESSION['go_home'])) {
-            $url=get_home_url();
-          } else { 
-            $url="";
-          }
-          ?>
-          <a href="<?php echo $url ?>"><img src="img/iPhone-icon.png" alt="" width="84"></a>
+          if (isset($_SESSION['go_home'])) { ?>
+            <a href="<?php echo(get_home_url());  ?>"><img src="img/iPhone-icon.png" alt="" width="84"></a>
+          <?php } else { ?> 
+            <img src="img/iPhone-icon.png" alt="" width="84">
+          <?php } ?>
         </div>
         <div class="col-sm-3">
           <h2 style="display: inline; font-family: Verdana;"><?php echo strtoupper("PhoneBook Manager")?></h2>
